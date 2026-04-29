@@ -1,0 +1,8 @@
+ERROR:root:A Value is Negative
+Traceback (most recent call last):
+  File "d:\PUMUB\it-club\zero-to-python-developer\code\Day_8\day_8.py", line 45, in <module>
+    print(square_root(-4))
+          ~~~~~~~~~~~^^^^
+  File "d:\PUMUB\it-club\zero-to-python-developer\code\Day_8\day_8.py", line 41, in square_root
+    raise NegativeNumberError("Cannot take square root of negative number")
+NegativeNumberError: Cannot take square root of negative number
