@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h2>Add New Note</h2>
+<form method="POST" action="{{ url_for('index') }}">
+  <label for="title">Title:</label><br />
+  <input type="text" id="title" name="title" required /><br /><br />
+  <label for="content">Content:</label><br />
+  <textarea id="content" name="content"></textarea><br /><br />
+  <input type="submit" value="Add Note" />
+</form>
+
+<hr />
+
+<h2>Notes</h2>
+<ul>
+  {% for note in notes %}
+  <li>
+    <strong>{{ note.title }}</strong> - {{ note.content }} ({{
+    note.created_at.strftime('%Y-%m-%d %H:%M:%S') }}) -
+    <a href="{{ url_for('note_detail', id=note.id) }}">Edit</a>
+    <form
+      method="POST"
+      action="{{ url_for('note_delete', id=note.id) }}"
+      style="display: inline"
+    >
+      <input type="submit" value="Delete" />
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
